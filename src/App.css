@@ -1,38 +1,122 @@
-.App {
-  text-align: center;
+/* 设置全屏显示 */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.grid {
+  display: inline-block;
+  width: 90vw; /* 网格占据屏幕的90%宽度 */
+  height: 90vw; /* 确保网格是正方形，宽高相同 */
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.row {
+  display: flex;
+  flex: 1; /* 每一行占据相同高度 */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.cell {
+  flex: 1; /* 每个单元格占据相同宽度 */
+  border: 1px solid #f7f7f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5vw; /* 字体大小根据屏幕宽度自动调整 */
+}
+
+.poop {
+  font-size: 5vw; /* 调整大便 emoji 的大小，设置为更大的比例 */
+}
+
+.mole {
+  background-color: rgb(255, 255, 255);
+}
+
+/* 控制按钮样式 */
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.control-row {
+  display: flex;
+  justify-content: center;
+}
+
+/* 正方形按钮 */
+.control-btn {
+  width: 60px;
+  height: 60px;
+  margin: 10px;
+  font-size: 24px;
+  border-radius: 10%; /* 圆角让按钮稍微圆润 */
+  background-color: #f0f0f0;
+  border: 2px solid #f0f0f0;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.control-btn:hover {
+  background-color: #ddd;
+}
+
+.control-btn:active {
+  background-color: #ccc;
+}
+
+/* 在移动设备上放大按钮 */
+@media (max-width: 600px) {
+  .control-btn {
+    width: 80px;
+    height: 80px;
+    font-size: 28px;
   }
 }
+
+.mole-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 确保图片在单元格内适应，并保持比例 */
+}
+
+
+/* 其他样式保持不变 */
+
+.cell.tree {
+  /* 树的样式 */
+  font-size: 5vw; /* 确保树 emoji 的大小与便便 emoji 一致 */
+}
+.cell.shop {
+  /* 树的样式 */
+  font-size: 5vw; /* 确保树 emoji 的大小与便便 emoji 一致 */
+}
+
+.shop-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 2px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000; /* 确保模态框在最上层 */
+}
+
